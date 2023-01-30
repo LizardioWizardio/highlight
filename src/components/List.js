@@ -9,18 +9,18 @@ const List = (props) => {
         switch (item.type) {
             case 'video':
                 return (
-                  checkViews(Video)({...item})
+                  withWrapper(Video)({...item})
                 );
 
             case 'article':
                 return (
-                    checkViews(Article)({...item})
+                    withWrapper(Article)({...item})
                 );
         }
     });
 };
 
-const checkViews = (WrappedComponent) => (props) => {
+const withWrapper = (WrappedComponent) => (props) => {
     if (props.views > 1000) {
         return (
             <Popular>
